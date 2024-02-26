@@ -66,16 +66,13 @@ router.get('/:id', async (req, res) => {
 // Create a new category
 router.post('/', async (req, res) => {
     try {
-      const { name, description } = req.body;
-  
+      const name = req.body.category_name;
       // Input validation
-      if (!name || typeof name !== 'string' || name.trim() === '') {
-        return res.status(400).json({ message: 'Name is required and must be a non-empty string' });
+      if (name.length === 0 || typeof (name) != 'string') {
+        return res.status(400).json({ message: "must be a string" });
       }
-  
-      // Optionally validate other fields like description
-  
-      const newCategory = await Category.create({ name, description });
+
+      const newCategory = await Category.create(req.body);
   
       // Log the creation
       console.log(`New category created: ${newCategory.name} (${newCategory.id})`);
@@ -93,14 +90,15 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
     try {
       const categoryId = req.params.id;
-      const { name, description } = req.body;
+      const name = req.body.category_name;
+      console.log(req.body.category_name);
+      console.log(categoryId);
   
-
-      if (!name || typeof name !== 'string' || name.trim() === '') {
-        return res.status(400).json({ message: 'Name is required and must be a non-empty string' });
+      if (name.length === 0 || typeof (name) != 'string') {
+        return res.status(400).json({ message: "must be a string" });
       }
   
-      const [updatedCount] = await Category.update({ name, description }, { where: { id: categoryId } });
+      const [updatedCount] = await Category.update(req.body, { where: { id: categoryId } });
   
       if (updatedCount === 0) {
         return res.status(404).json({ message: 'Category not found' });

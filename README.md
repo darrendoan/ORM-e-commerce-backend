@@ -52,6 +52,9 @@ THEN I am able to successfully create, update, and delete data in my database
 10) start the express server by typing "npm start" or "npm run start"
 11) open insomnia or postman to test the various endpoints
 
+## Video Tutorial 
+If you are having trouble, you may refer to this video for guidance 
+
 ## License 
 This is licensed under the MIT license
 

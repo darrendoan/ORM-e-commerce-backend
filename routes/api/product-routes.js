@@ -31,6 +31,7 @@ router.get("/:id", async (req, res) => {
 router.post("/", (req, res) => {
   Product.create(req.body)
     .then((product) => {
+      // const {product_name, price, stock, category_id, tag_ids} =req.body;
       if (req.body.tagIds.length) {
         const productTagIds = req.body.tagIds.map((tag_id) => {
           return {
@@ -45,7 +46,9 @@ router.post("/", (req, res) => {
     .then((productTagIds) => res.status(200).json(productTagIds))
     .catch((err) => {
       res.status(400).json({ message: "Creation failed", error: err });
+      console.log(err);
     });
+    
 });
 
 router.put("/:id", async (req, res) => {
