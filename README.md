@@ -53,7 +53,7 @@ THEN I am able to successfully create, update, and delete data in my database
 11) open insomnia or postman to test the various endpoints
 
 ## Video Tutorial 
-If you are having trouble, you may refer to this video for guidance 
+If you are having trouble, you may refer to this video for guidance: https://app.screencastify.com/v3/watch/usf5VnnJWF2HUVJaylpk  
 
 ## License 
 This is licensed under the MIT license
